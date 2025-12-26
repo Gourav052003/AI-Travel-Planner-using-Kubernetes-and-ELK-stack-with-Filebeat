@@ -32,10 +32,12 @@ spec:
           env:
             - name: discovery.type
               value: single-node
-            - name: JAVA_TOOL_OPTIONS
-              value: "-XX:-UseContainerSupport"
             - name: ES_JAVA_OPTS
-              value: "-Xms512m -Xmx512m"
+              # value: "-Xms512m -Xmx512m"
+              value: >
+                -Xms512m -Xmx512m
+                -Dcom.sun.management.jmxremote=false
+                -Des.disable_system_metrics=true
             - name: xpack.security.enabled
               value: "false"
           ports:
